@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package calculatorpb;
+option go_package="/calculator/pb";
+
+// Calculator struct
+message Calculator {
+    int64 a = 1;
+    int64 b = 2;
+}
+
+// Calculator request
+message CalculatorRequest {
+    Calculator req = 1;
+}
+
+// Calculator response
+message CalculatorResponse {
+    int64 res = 1;
+}
+
+service CalculatorService{
+    // unary API
+    rpc Calculator(CalculatorRequest) returns (CalculatorResponse){};
+};
