@@ -30,3 +30,9 @@ new feature from grpc
 1. can handle streaming data from server
 2. can handle streaming data from client
 3. bi-directional streaming
+
+
+benefit of grpc
+1. lighter, and more efficient than json because of its binary
+2. supported by 11 language (go, python, java, c++, js, c#, ruby)
+3. pure implementation in each language
