@@ -24,3 +24,7 @@ Creation Thoughts:
 in client side:
 1. create object for each service-group
 2. each of that object can call any function that is directly under that particular service group
+
+
+new feature from grpc
+1. can handle streaming data from server
