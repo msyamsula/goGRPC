@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package clientstreamingpb;
+option go_package="/client_streaming/clientstreampb";
+
+// greet request
+message ClientStreamRequest {
+    string name = 1;
+}
+
+// greet response
+message ClientStreamResponse {
+    string res = 1;
+}
+
+service GreetService{
+    // unary API
+    rpc Greet(stream ClientStreamRequest) returns (ClientStreamResponse){};
+};

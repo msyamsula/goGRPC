@@ -15,12 +15,12 @@ usefull commands:
 
 
 Creation Thoughts:
+in server side
 1. we can group service based on something (call it service-group)
 2. in each service, create appropriate function that is needed in proto file
 3. run protobuf generation file
 4. implement all function that you create in proto file
 5. run listener and server
-
 in client side:
 1. create object for each service-group
 2. each of that object can call any function that is directly under that particular service group
@@ -28,3 +28,5 @@ in client side:
 
 new feature from grpc
 1. can handle streaming data from server
+2. can handle streaming data from client
+3. bi-directional streaming
