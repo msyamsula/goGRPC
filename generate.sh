@@ -1,1 +1,1 @@
-protoc calculator/pb/calculator.proto --go_out=plugins=grpc:.
+protoc $1 --go_out=plugins=grpc:.

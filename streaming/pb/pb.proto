@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package streamingpb;
+option go_package="/streaming/pb";
+
+// greet request
+message GreetRequest {
+    string name = 1;
+}
+
+// greet response
+message GreetResponse {
+    string res = 1;
+}
+
+service GreetService{
+    // unary API
+    rpc Greet(GreetRequest) returns (stream GreetResponse){};
+};
