@@ -1,7 +1,7 @@
 syntax = "proto3";
 
 package calculatorpb;
-option go_package="/calculator/pb";
+option go_package="/pb";
 
 // Calculator struct
 message Calculator {
@@ -19,7 +19,16 @@ message CalculatorResponse {
     int64 res = 1;
 }
 
+message SquareRootRequest {
+    int64 num = 1;
+}
+
+message SquareRootResponse {
+    float root = 1;
+}
+
 service CalculatorService{
     // unary API
     rpc Calculator(CalculatorRequest) returns (CalculatorResponse){};
+    rpc SquareRoot(SquareRootRequest) returns (SquareRootResponse){};
 };

@@ -4,10 +4,13 @@ import (
 	"context"
 	"fmt"
 	"log"
+	"math"
 	"net"
 
 	"github.com/msyamsula/goGRPC/calculator/pb"
 	"google.golang.org/grpc"
+	"google.golang.org/grpc/codes"
+	"google.golang.org/grpc/status"
 )
 
 type server struct{}
@@ -21,6 +24,25 @@ func (*server) Calculator(ctx context.Context, req *pb.CalculatorRequest) (*pb.C
 
 	res := &pb.CalculatorResponse{
 		Res: sum,
+	}
+
+	return res, nil
+}
+
+func (*server) SquareRoot(ctx context.Context, req *pb.SquareRootRequest) (*pb.SquareRootResponse, error) {
+	num := req.GetNum()
+	ans := math.Sqrt(float64(num))
+
+	// return error invalid argument
+	if num < 0 {
+		return nil, status.Errorf(
+			codes.InvalidArgument,
+			fmt.Sprintf("Receive negative number: %v", num),
+		)
+	}
+
+	res := &pb.SquareRootResponse{
+		Root: float32(ans),
 	}
 
 	return res, nil

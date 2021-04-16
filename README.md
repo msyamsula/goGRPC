@@ -36,3 +36,6 @@ benefit of grpc
 1. lighter, and more efficient than json because of its binary
 2. supported by 11 language (go, python, java, c++, js, c#, ruby)
 3. pure implementation in each language
+
+Error Handling
+1. there is status response in gRPC like REST, but its more simple and verbose, see the documentation of gRPC error code https://developers.google.com/maps-booking/reference/grpc-api/status_codes
