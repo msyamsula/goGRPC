@@ -42,3 +42,9 @@ Error Handling
 
 Deadline
 1. it is a feature in gRPC when client set a time to get a response
+
+SSL
+1. documentation : https://grpc.io/docs/guides/auth/
+
+Swagger
+1. evan CLI, https://github.com/ktr0731/evans
