@@ -5,9 +5,12 @@ import (
 	"fmt"
 	"log"
 	"net"
+	"time"
 
 	"github.com/msyamsula/goGRPC/greet/greetpb"
 	"google.golang.org/grpc"
+	"google.golang.org/grpc/codes"
+	"google.golang.org/grpc/status"
 )
 
 type server struct{}
@@ -23,6 +26,28 @@ func (*server) Greet(ctx context.Context, req *greetpb.GreetRequest) (*greetpb.G
 	}
 
 	return &res, nil
+}
+
+func (*server) GreetWithDeadline(ctx context.Context, req *greetpb.GreetRequest) (*greetpb.GreetResponse, error) {
+	first_name := req.GetGreeting().GetFirstName()
+
+	// simulate 3 second delay
+	for i := 0; i < 3; i++ {
+		// check context error for each second
+		if ctx.Err() == context.DeadlineExceeded {
+			fmt.Println("the client canceled the request")
+			return nil, status.Error(codes.Canceled, "client canceled the request")
+		}
+
+		time.Sleep(1 * time.Second)
+	}
+
+	result := "Hello " + first_name + "!!!!\n"
+	res := &greetpb.GreetResponse{
+		Result: result,
+	}
+
+	return res, nil
 }
 
 func main() {

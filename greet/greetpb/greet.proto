@@ -22,4 +22,7 @@ message GreetResponse {
 service GreetService{
     // unary API
     rpc Greet(GreetRequest) returns (GreetResponse){};
+
+    // rpc with deadline
+    rpc GreetWithDeadline(GreetRequest) returns (GreetResponse){};
 };
