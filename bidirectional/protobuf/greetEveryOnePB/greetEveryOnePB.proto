@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package greetEveryOnePB;
+option go_package="/protobuf/greetEveryOnePB";
+
+// greet request
+message GreetEveryOneRequest {
+    string name = 1;
+}
+
+// greet response
+message GreetEveryOneResponse {
+    string res = 1;
+}
+
+service GreetEveryOneService{
+    // unary API
+    rpc Greet(stream GreetEveryOneRequest) returns (stream GreetEveryOneResponse){};
+};
