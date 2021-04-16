@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package newfindmaxpb;
+option go_package="/protobuf/newfindmaxpb";
+
+// greet request
+message Request {
+    int64 num = 1;
+}
+
+// greet response
+message Response {
+    int64 num = 1;
+}
+
+service MaxService{
+    // unary API
+    rpc GetMax(stream Request) returns (stream Response){};
+};
