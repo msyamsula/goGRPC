@@ -38,10 +38,10 @@ benefit of grpc
 3. pure implementation in each language
 
 Error Handling
-1. there is status response in gRPC like REST, but its more simple and verbose, see the documentation of gRPC error code https://developers.google.com/maps-booking/reference/grpc-api/status_codes
+1. there is status response in gRPC like REST, but its more simple and verbose, see the documentation of gRPC error code https://developers.google.com/maps-booking/reference/grpc-api/status_codes, see example in calculator
 
 Deadline
-1. it is a feature in gRPC when client set a time to get a response
+1. it is a feature in gRPC when client set a time to get a response, see example in greet
 
 SSL
 1. documentation : https://grpc.io/docs/guides/auth/
